@@ -1,11 +1,14 @@
-import { ResponsiveChoropleth } from '@nivo/geo'
-import countries from './MapData.json'
+import { ResponsiveChoropleth } from '@nivo/geo';
+import { useWindowSize } from '../hooks/UseWindowSize';
+import countries from './MapData.json';
 
 interface Props {
     data: any[]
 }
 
 const Country = ({ data }: Props) => {
+    const size = useWindowSize()
+    const width = size.width || 100
     return (
         <ResponsiveChoropleth
             data={data}
@@ -16,6 +19,7 @@ const Country = ({ data }: Props) => {
             unknownColor="#666666"
             label="properties.name"
             valueFormat=".2s"
+            projectionScale={width / 7}
             projectionTranslation={[0.5, 0.5]}
             projectionRotation={[0, 0, 0]}
             borderWidth={0.5}
@@ -23,14 +27,14 @@ const Country = ({ data }: Props) => {
             legends={[
                 {
                     anchor: 'bottom-left',
-                    direction: 'column',
+                    direction: 'row',
                     justify: true,
-                    translateX: 150,
+                    translateX: 30,
                     translateY: -100,
                     itemsSpacing: 0,
-                    itemWidth: 94,
+                    itemWidth: width / 10,
                     itemHeight: 18,
-                    itemDirection: 'left-to-right',
+                    itemDirection: 'right-to-left',
                     itemTextColor: '#444444',
                     itemOpacity: 0.85,
                     symbolSize: 18,
