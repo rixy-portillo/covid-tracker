@@ -7,5 +7,17 @@
 .container {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: slategray;
+  background-color: #b0c4de;
+}
+
+.title {
+  color: white;
+  text-align: center;
+
+  width: 100vw;
+  padding: 5rem;
+}
+
+.map {
+  height: 60vh;
 }

@@ -19,7 +19,12 @@ function App() {
 
   return (
     <div className="container">
-      <Country data={state} />
+      <div className="title">
+        <h2>Global Coronovirus Cases</h2>
+      </div>
+      <div className="map">
+        <Country data={state} />
+      </div>
     </div>
   );
 }
